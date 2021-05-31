@@ -5,7 +5,7 @@ from models.gompertz import Gompertz
 APP = Flask(__name__)
 API = Api(APP)
 
-API.add_resource(Gompertz, '/predict')
+API.add_resource(Gompertz, '/gompertz')
 
 if __name__ == '__main__':
-    APP.run(debug=True, port='1080')
+    APP.run( port='1080',host="0.0.0.0",debug=True)
