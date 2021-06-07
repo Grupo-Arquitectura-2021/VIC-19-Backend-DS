@@ -8,4 +8,4 @@ API = Api(APP)
 API.add_resource(Gompertz, '/gompertz')
 
 if __name__ == '__main__':
-    APP.run( port='1080',host="0.0.0.0",debug=True)
+    APP.run( port='1080',host="localhost",debug=True)

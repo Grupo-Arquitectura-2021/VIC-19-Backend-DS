@@ -10,6 +10,7 @@ class Gompertz(Resource):
     @staticmethod
     def post():
         parser = reqparse.request.data
+        print(parser)
         body=json.loads(parser)
         sumC,sumR,sumD,sumV=0,0,0,0;
         dataC_normal=[]
