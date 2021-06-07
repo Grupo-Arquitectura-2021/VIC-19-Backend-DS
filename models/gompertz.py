@@ -10,7 +10,6 @@ class Gompertz(Resource):
     @staticmethod
     def post():
         parser = reqparse.request.data
-        print(parser)
         body=json.loads(parser)
         sumC,sumR,sumD,sumV=0,0,0,0;
         dataC_normal=[]
@@ -34,9 +33,6 @@ class Gompertz(Resource):
             dates.append((datetime.datetime.timestamp(auxDate)-primDate)/86400)
             dataC_normal.append(d["confirmedCases"])
     
-        print(dates)
-        print(dataC)
-        print(np.exp(1))
         def fun(x,b,r,k):
             return np.exp((x-b)*r)/(1+((np.exp((x-b)*r)-1)/k))
         def funSol(x,b,r,k):
@@ -46,7 +42,6 @@ class Gompertz(Resource):
             resR,var1= (curve_fit(fun,dates,dataR))
             resD,var2= (curve_fit(fun,dates,dataD))
             resV,var3= (curve_fit(fun,dates,dataV))
-            print(var3)
             out = {
                 "function": "y=(r*k*k*np.exp(r*(x-b))-r*k*np.exp(r*(x-b)))/pow(k+np.exp(r*(x-b))-1,2)",
                 'confirmedCases': {"b":resC[0],"r":resC[1],"k":resC[2]},
