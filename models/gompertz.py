@@ -1,10 +1,7 @@
-import pandas as pd
 import datetime
 import numpy as np
 from flask_restful import Api, Resource, reqparse
-from lmfit import Model
 import json
-import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 class Gompertz(Resource):
     @staticmethod
