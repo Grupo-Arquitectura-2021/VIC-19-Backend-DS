@@ -11,4 +11,4 @@ API = Api(APP)
 API.add_resource(Vgg16, '/vgg')
 
 if __name__ == '__main__':
-    APP.run( port='1080')
+    APP.run( port='3000', host="0.0.0.0")
