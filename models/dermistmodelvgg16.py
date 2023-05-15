@@ -1,6 +1,7 @@
 import numpy as np
 from keras.applications.imagenet_utils import preprocess_input
 import cv2
+import json
 from flask_restful import Resource, request
 
 class Vgg16(Resource):
@@ -29,7 +30,7 @@ class Vgg16(Resource):
       except RuntimeError:
           print("No se pudo lograr la proyeccion de datos")
 
-      return [
+      return json.dumps(str([
               {
                 "name":names[ipreds[ipreds.size-1]],
                 "percentage": preds[0][ipreds[ipreds.size-1]]   
@@ -42,4 +43,4 @@ class Vgg16(Resource):
                 "name":names[ipreds[ipreds.size-3]],
                 "percentage": preds[0][ipreds[ipreds.size-3]]  
               }
-          ],200
+          ])),200
