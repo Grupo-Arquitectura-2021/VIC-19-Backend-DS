@@ -33,14 +33,14 @@ class Vgg16(Resource):
       return [
               {
                 "name":names[ipreds[ipreds.size-1]],
-                "percentage": json.dumps(str(preds[0][ipreds[ipreds.size-1]]))
+                "percentage": json.dumps(preds[0][ipreds[ipreds.size-1]].item())
               },
               {
                 "name":names[ipreds[ipreds.size-2]],
-                "percentage": json.dumps(str(preds[0][ipreds[ipreds.size-2]]))
+                "percentage": json.dumps(preds[0][ipreds[ipreds.size-2]].item())
               }, 
               {
                 "name":names[ipreds[ipreds.size-3]],
-                "percentage": json.dumps(str(preds[0][ipreds[ipreds.size-3]]))
+                "percentage": json.dumps(preds[0][ipreds[ipreds.size-3]].item())
               }
           ],200
