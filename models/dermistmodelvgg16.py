@@ -15,8 +15,8 @@ class Vgg16(Resource):
         #modelt = custom_vgg_model
 
         imaget_path = "/content/drive/MyDrive/TESTIMGDERMIST/acne_papulopustular/194papulopustular.png"
-        imaget=cv2.resize(cv2.imdecode(np.frombuffer(request.files.get('image').read(), np.uint8), -1), (224, 224), interpolation = cv2.INTER_AREA)
-        print(cv2.imdecode(np.frombuffer(request.files.get('image').read(), np.uint8), -1))
+        imaget=cv2.resize(cv2.imdecode(request.files.get('image').read()), (224, 224), interpolation = cv2.INTER_AREA)
+        print(cv2.imdecode(request.files.get('image').read()))
         print(imaget)
         xt = np.asarray(imaget)
         xt=preprocess_input(xt)
